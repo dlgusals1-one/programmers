@@ -1,7 +1,7 @@
 class Solution {
     public String solution(String letter) {
         String answer = "";
-        String[] copy = letter.split(" ");
+        String[] arr = letter.split(" ");
         String[] morse = {
     ".-", "-...", "-.-.", "-..", ".", "..-.",
     "--.", "....", "..", ".---", "-.-", ".-..",
@@ -9,14 +9,16 @@ class Solution {
     "...", "-", "..-", "...-", ".--", "-..-",
     "-.--", "--.."
 };
-        for(int i = 0;i < copy.length;i++){
-        char sen = 'a';
+        for(int i = 0; i < arr.length; i++){
+            char sen = 'a';
             for(int j = 0; j < morse.length; j++){
-                if(copy[i].equals(morse[j])){
-                    answer += sen;
+                if(morse[j].equals(arr[i])) {
+                    answer+=sen;
+                    break;
                 }
                 sen++;
             }
+            sen++;
         }
         return answer;
     }
